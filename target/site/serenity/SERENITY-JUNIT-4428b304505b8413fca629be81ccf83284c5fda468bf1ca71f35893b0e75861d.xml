@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="buscar ciudad capital por código ISO del país" skipped="0" tests="4" time="9.8" timestamp="2022-01-03 05:59:56"><testcase name="busqueda con coincidencia única"/><testcase name="busqueda sin coincidencias"/></testsuite>
