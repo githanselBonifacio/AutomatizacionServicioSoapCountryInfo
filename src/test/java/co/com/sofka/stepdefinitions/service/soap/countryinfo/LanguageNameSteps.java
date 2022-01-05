@@ -1,7 +1,6 @@
 package co.com.sofka.stepdefinitions.service.soap.countryinfo;
 
 import co.com.sofka.ServiceSetup;
-import co.com.sofka.util.StepUtil;
 import co.com.sofka.util.service.soap.countryinfo.Patch;
 import co.com.sofka.util.service.soap.countryinfo.Response;
 import io.cucumber.java.en.Then;
@@ -27,7 +26,7 @@ public class LanguageNameSteps extends ServiceSetup {
                     doPost()
                             .withTheResource(RESOURCE)
                             .andTheHeaders(super.headers())
-                            .andTheBodyRequest(StepUtil.bodyRequest(
+                            .andTheBodyRequest(BodyPetition.bodyRequest(
                                     Patch.lANGUAGE_NAME_REQUEST.getValue(),codeLanguage))
             );
         }catch (Exception e){
@@ -44,7 +43,7 @@ public class LanguageNameSteps extends ServiceSetup {
                             resp -> resp.statusCode(HttpStatus.SC_OK)),
                     seeThat("La ciudad capital es: ",
                             resturnSoapServiceResponse(),
-                            containsString(StepUtil.bodyResponse(
+                            containsString(BodyPetition.bodyResponse(
                                     Response.LANGUAGE_NAME_RESPONSE.getValue(),response)))
             );
         }catch (AssertionError e){
@@ -60,7 +59,7 @@ public class LanguageNameSteps extends ServiceSetup {
                             resp -> resp.statusCode(HttpStatus.SC_INTERNAL_SERVER_ERROR)),
                     seeThat("Respuesta del servidor: ",
                             resturnSoapServiceResponse(),
-                            containsString(StepUtil.bodyResponse(
+                            containsString(BodyPetition.bodyResponse(
                                     Response.ERROR_SERVER_RESPONSE.getValue(),response)))
             );
         }catch (AssertionError e) {
